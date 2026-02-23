@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://b0j33tqg7my1b"]
+
+[ext_resource type="ArrayMesh" uid="uid://bndbj3ih3qd2i" path="res://export/uploads_files_4499267_Farm_free_obj.obj" id="1_noarx"]
+[ext_resource type="Script" uid="uid://cychlg8rufab3" path="res://player.gd" id="2_a0tk4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r3fl7"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jka67"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i5arm"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_wc5p8"]
+
+[node name="Node3D" type="Node3D" unique_id=533167687]
+
+[node name="podlaha" type="StaticBody3D" parent="." unique_id=1260449123]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="podlaha" unique_id=1518661317]
+transform = Transform3D(20, 0, 0, 0, 0.2, 0, 0, 0, 20, 0, 0, 0)
+shape = SubResource("BoxShape3D_r3fl7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="podlaha" unique_id=1203223498]
+transform = Transform3D(20, 0, 0, 0, 0.2, 0, 0, 0, 20, 0, 0, 0)
+mesh = SubResource("BoxMesh_jka67")
+
+[node name="dum" type="StaticBody3D" parent="." unique_id=1926193744]
+transform = Transform3D(0.7580205, 0, 0.65223074, 0, 1, 0, -0.65223074, 0, 0.7580205, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="dum" unique_id=2091365788]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="dum" unique_id=2081008847]
+transform = Transform3D(0.4964143, 0, -0.059773833, 0, 0.5, 0, 0.059773833, 0, 0.4964143, -1.6130527, 0, -4.029818)
+mesh = ExtResource("1_noarx")
+
+[node name="player" type="CharacterBody3D" parent="." unique_id=2059589614]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4104161, 0)
+script = ExtResource("2_a0tk4")
+
+[node name="CameraPivot" type="Node3D" parent="player" unique_id=243098752]
+
+[node name="Camera3D" type="Camera3D" parent="player/CameraPivot" unique_id=435828976]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16348004, 1.76898)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="player" unique_id=586280275]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.7785107, 0)
+shape = SubResource("CapsuleShape3D_i5arm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="player" unique_id=601588493]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.7714803, -0.021)
+mesh = SubResource("CapsuleMesh_wc5p8")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2026929293]
+transform = Transform3D(1, 0, 0, 0, -0.058853377, 0.99826664, 0, -0.99826664, -0.058853377, 0, 7.428682, 0)
+light_energy = 1.95
+light_indirect_energy = 16.0
